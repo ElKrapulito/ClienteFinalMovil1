@@ -83,6 +83,7 @@ class MenuActivity : AppCompatActivity(),
         if(requestCode == resultCode){
             if(data != null){
                 val location = data.getParcelableExtra("location") as LatLng
+                val description = data.getStringExtra("description") as String
                 //Toast.makeText(this, "${location.latitude} ${location.longitude}", Toast.LENGTH_SHORT).show()
                 val pedido = Pedido(
                     0,
@@ -90,7 +91,7 @@ class MenuActivity : AppCompatActivity(),
                     restaurantId,
                     total,
                     Calendar.getInstance().toString(),
-                    "Por ahi!",
+                    description,
                     location.latitude,
                     location.longitude,
                     "0",

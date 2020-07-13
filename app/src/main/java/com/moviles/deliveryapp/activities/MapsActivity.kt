@@ -4,6 +4,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.example.clientefinal.R
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -87,10 +88,16 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         }
 
         btnConfirm.setOnClickListener {
-            val intent = Intent(this, MenuActivity::class.java)
-            intent.putExtra("location", myMarker.position)
-            setResult(0, intent)
-            finish()
+            if(txtDescription.text.isNotBlank() || txtDescription.text.isNotEmpty()){
+                val intent = Intent(this, MenuActivity::class.java)
+                intent.putExtra("location", myMarker.position)
+                intent.putExtra("description",txtDescription.text.toString())
+                setResult(0, intent)
+                finish()
+            } else {
+                Toast.makeText(this,"Ingresar una descripcion de su ubicacion!", Toast.LENGTH_SHORT).show()
+            }
+
         }
     }
     companion object{

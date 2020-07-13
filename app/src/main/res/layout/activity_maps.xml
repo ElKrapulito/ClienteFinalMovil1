@@ -34,6 +34,15 @@
             android:layout_weight="35"
              />
 
+        <EditText
+            android:id="@+id/txtDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="Ingresar descripcion de ubicacion"
+            android:inputType="text" />
+
         <Button
             android:id="@+id/btnConfirm"
             android:layout_width="match_parent"
